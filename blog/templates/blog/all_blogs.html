@@ -1,0 +1,17 @@
+{% extends 'portfolioapp/base.html'%}
+
+{% block content %}
+
+
+<h2>Фреймворков на сайте {{ blogs.count }}</h2>
+{% for blog in blogs %}
+
+<br>
+<img src="{{ blog.image.url }}" width="200" height="120" class="img-fluid mb-5">
+<a href="{% url 'blog:detail' blog.id %}"><h2>{{blog.name}}</h2></a>
+<h3>{{ blog.content|truncatechars:100 }}</h3>
+<br>
+
+{% endfor %}
+
+{% endblock %}
